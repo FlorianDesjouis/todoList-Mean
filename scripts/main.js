@@ -4,15 +4,16 @@
     new Vue({
         el: 'main#app',
         data: {
-            tasks: [
-                {title: "Grab some popcorn", isDone: true},
-                {title: "Watch Rick and Morty", isDone: true},
-                {title: "Go to the shower", isDone: false}
-            ],
+            tasks: [],
             title: ""
         },
 
         methods: {
+            showTasks: function(){
+                var retrievedDatas = localStorage.getItem("tasks");
+                this.tasks = JSON.parse(retrievedDatas)
+            },
+
             remaining: function () {
                 var remains = 0;
                 this.tasks.forEach(function (task) {
@@ -25,6 +26,7 @@
 
             deleteTask: function (index) {
                 Vue.delete(this.tasks, index);
+                localStorage.setItem("tasks", JSON.stringify(this.tasks));
             },
 
             addTask: function (title) {

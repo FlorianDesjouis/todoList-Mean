@@ -35,7 +35,7 @@
     <h3>Liste des tâches</h3>
 
     <p>Il reste <strong>{{ remaining() }}</strong> tâche<span v-if="remaining() > 1">s</span> sur <strong>{{ tasks.length }}</strong> à effectuer.</p>
-    
+    <div>{{showTasks()}}</div>
     <ul class="collection">
         <li class="collection-item" v-for="(task, index) in tasks">
             <input type="checkbox" v-model="task.isDone" :id="'t_'+ (index + 1)">
