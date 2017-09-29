@@ -8,7 +8,8 @@
                 {title: "Grab some popcorn", isDone: true},
                 {title: "Watch Rick and Morty", isDone: true},
                 {title: "Go to the shower", isDone: false}
-            ]
+            ],
+            title: ""
         },
 
         methods: {
@@ -24,6 +25,12 @@
 
             deleteTask: function (index) {
                 Vue.delete(this.tasks, index);
+            },
+
+            addTask: function (title) {
+                if (title !== "") {
+                    Vue.set(this.tasks, this.tasks.length, {title, isDone: false});
+                }
             }
         }
     });
