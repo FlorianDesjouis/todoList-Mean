@@ -30,6 +30,7 @@
             addTask: function (title) {
                 if (title !== "") {
                     Vue.set(this.tasks, this.tasks.length, {title, isDone: false});
+                    localStorage.setItem("tasks", JSON.stringify(this.tasks));
                 }
             }
         }
