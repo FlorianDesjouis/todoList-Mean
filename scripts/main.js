@@ -20,6 +20,10 @@
                     }
                 });
                 return remains;
+            },
+
+            deleteTask: function (index) {
+                Vue.delete(this.tasks, index);
             }
         }
     });

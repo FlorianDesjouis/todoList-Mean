@@ -40,7 +40,7 @@
         <li class="collection-item" v-for="(task, index) in tasks">
             <input type="checkbox" v-model="task.isDone" :id="'t_'+ (index + 1)">
             <label :for="'t_'+ (index + 1)">{{ task.title }}</label>
-            <a href="#" class="link-delete" title="Supprimer cette tâche">
+            <a href="#" class="link-delete" title="Supprimer cette tâche" @click="deleteTask(index)">
                 <i class="small material-icons">delete_forever</i>
             </a>
         </li>
